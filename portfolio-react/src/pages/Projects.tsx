@@ -1,10 +1,18 @@
+import ProjectCard from "../components/ProjectCard"
+import { projects } from "../data/projects"
+
 export default function Projects() {
   return (
     <section className="max-w-6xl mx-auto px-4 py-20">
-      <h1 className="text-3xl font-bold mb-6">Proyectos</h1>
-      <p className="text-slate-600">
-        Próximamente mis proyectos destacados.
-      </p>
+      <h1 className="text-3xl font-bold mb-10 text-center">
+        Proyectos
+      </h1>
+
+      <div className="grid gap-8 sm:grid-cols-2">
+        {projects.map((project) => (
+          <ProjectCard key={project.id} project={project} />
+        ))}
+      </div>
     </section>
   )
 }
