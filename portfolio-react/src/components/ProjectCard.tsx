@@ -1,3 +1,4 @@
+import { motion } from "framer-motion"
 import type { Project } from "../data/projects"
 
 interface Props {
@@ -6,7 +7,13 @@ interface Props {
 
 export default function ProjectCard({ project }: Props) {
   return (
-    <article className="border rounded-lg p-6 shadow-sm hover:shadow-md transition bg-white">
+    <motion.article
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      whileHover={{ scale: 1.03 }}
+      transition={{ duration: 0.3 }}
+      className="border rounded-lg p-6 shadow-sm hover:shadow-md transition bg-white"
+    >
       <h3 className="text-xl font-bold mb-2">{project.title}</h3>
 
       <p className="text-slate-600 mb-4">
@@ -45,6 +52,6 @@ export default function ProjectCard({ project }: Props) {
           </a>
         )}
       </div>
-    </article>
+    </motion.article>
   )
 }
