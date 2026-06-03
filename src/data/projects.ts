@@ -1,84 +1,187 @@
 export interface Project {
-  id: number
-  title: string
-  description: string
-  technologies: string[]
+  id: number;
+  category: string;
 
-  github: string
-  demo?: string
+  title: string;
+  description: string;
 
-  image?: string // screenshot del proyecto
-  featured?: boolean // para destacar proyectos importantes
+  technologies: string[];
+
+  github: string;
+  demo?: string;
+  swagger?: string;
+
+  image?: string;
+  featured?: boolean;
 
   credentials?: {
-    email: string
-    password: string
-  }
+    email: string;
+    password: string;
+  };
 
-  notes?: string // ej: "Puede tardar en iniciar (free tier)"
+  notes?: string;
 }
 
 export const projects: Project[] = [
+  // =====================================
+  // 🚀 FEATURED PROJECTS
+  // =====================================
+
   {
     id: 1,
-    title: "Market Products",
-    description:
-      "Aplicación full stack para gestión de productos con autenticación y API REST.",
-    technologies: ["React", "Node.js", "Express", "MongoDB"],
-    github: "https://github.com/tu-usuario/market-products",
-    demo: "https://market-products.vercel.app",
-    image: "/screenshots/market-products.jpg",
-    featured: true,
-    notes: "El backend puede tardar unos segundos en iniciar (free tier).",
-  },
-  {
-    id: 2,
-    title: "UpTask",
-    description:
-      "Aplicación de gestión de tareas con autenticación para organizar proyectos y tareas.",
-    technologies: ["React", "TypeScript", "Tailwind", "Node.js", "Express", "MongoDB"],
-    github: "https://github.com/tu-usuario/up-task",
-    demo: "https://up-task.vercel.app",
-    image: "/screenshots/uptask.jpg",
-    featured: true,
-  },
-  {
-    id: 3,
+    category: "Full Stack",
+
     title: "City Connect Pro",
+
     description:
-      "Plataforma para conectar ciudadanos con profesionales y servicios locales, con autenticación y roles.",
+      "Plataforma full stack para conectar ciudadanos con profesionales y servicios locales. Implementa autenticación JWT, autorización basada en roles, gestión de servicios y arquitectura escalable utilizando Spring Boot y React.",
+
     technologies: [
-      "React",
-      "TypeScript",
-      "Tailwind",
       "Java",
       "Spring Boot",
       "Spring Security",
-      "MySQL",
-    ],
-    github: "https://github.com/tu-usuario/city-connect-pro",
-    demo: "https://city-connect-pro.vercel.app",
-    image: "/screenshots/city-connect-pro.jpg",
-    featured: true,
-    notes: "El backend puede tardar en iniciar (free tier).",
-  },
-  {
-    id: 4,
-    title: "PetShop - Doguito",
-    description:
-      "Sistema para gestión de productos y servicios de una veterinaria con autenticación y API REST.",
-    technologies: [
+      "JWT",
+      "PostgreSQL",
       "React",
       "TypeScript",
-      "Tailwind",
+      "Docker",
+    ],
+
+    github: "https://github.com/Juan-prog-2022/city-connect-pro",
+
+    demo: "https://city-connect-pro.vercel.app",
+
+    swagger: "https://city-connect-pro-api.onrender.com/swagger-ui/index.html",
+
+    image: "/screenshots/city-connect-pro.png",
+
+    featured: true,
+
+    notes:
+      "Proyecto principal del portfolio. Backend desplegado con Spring Boot y frontend desarrollado con React.",
+  },
+
+  {
+    id: 2,
+    category: "Full Stack",
+
+    title: "PetCare Manager",
+
+    description:
+      "Sistema de gestión para veterinarias que permite administrar productos, servicios, clientes y turnos mediante una arquitectura full stack con Spring Boot y React.",
+
+    technologies: [
       "Java",
       "Spring Boot",
       "Spring Security",
       "PostgreSQL",
+      "React",
+      "TypeScript",
+      "Docker",
+      "JPA",
+      "Hibernate",
     ],
-    github: "https://github.com/tu-usuario/petshop-doguito",
-    demo: "https://petshop-doguito.vercel.app",
-    image: "/screenshots/petshop-doguito.jpg",
-    notes: "El backend puede tardar unos segundos en iniciar (free tier).",
+
+    github: "https://github.com/Juan-prog-2022/petcare-manager",
+
+    demo: "https://petcare-manager.vercel.app",
+
+    swagger: "https://petcare-manager-api.onrender.com/swagger-ui/index.html",
+
+    image: "/screenshots/petcare-manager.jpg",
+
+    featured: true,
+
+    notes:
+      "Incluye autenticación, persistencia de datos y arquitectura cliente-servidor.",
   },
-]
+
+  {
+    id: 3,
+    category: "Backend",
+
+    title: "Microservices Platform",
+
+    description:
+      "Arquitectura basada en microservicios utilizando Spring Cloud. Incluye API Gateway, Config Server, Service Discovery y comunicación entre servicios para aplicaciones distribuidas.",
+
+    technologies: [
+      "Java",
+      "Spring Boot",
+      "Spring Cloud",
+      "Microservices",
+      "API Gateway",
+      "Config Server",
+      "PostgreSQL",
+      "Docker",
+    ],
+
+    github: "https://github.com/Juan-prog-2022/microservices-platform",
+
+    swagger:
+      "https://microservices-platform.onrender.com/swagger-ui/index.html",
+
+    image: "/screenshots/microservices-platform.jpg",
+
+    featured: true,
+
+    notes: "Proyecto orientado a arquitectura backend y sistemas distribuidos.",
+  },
+
+  {
+    id: 4,
+    category: "PERN Stack",
+
+    title: "InventoryHub",
+
+    description:
+      "Sistema de gestión de inventario y productos desarrollado con PostgreSQL, Express, React y Node.js. Permite administrar stock, categorías y operaciones CRUD completas.",
+
+    technologies: [
+      "PostgreSQL",
+      "Express",
+      "React",
+      "Node.js",
+      "TypeScript",
+      "JWT",
+    ],
+
+    github: "https://github.com/Juan-prog-2022/inventoryhub",
+
+    demo: "https://inventoryhub.vercel.app",
+
+    image: "/screenshots/inventoryhub.jpg",
+
+    featured: true,
+  },
+
+  // =====================================
+  // 🎨 ADDITIONAL PROJECTS
+  // =====================================
+
+  {
+    id: 5,
+    category: "MERN Stack",
+
+    title: "UpTask",
+
+    description:
+      "Aplicación full stack para gestión de tareas y proyectos. Permite autenticación de usuarios, administración de proyectos colaborativos y seguimiento de tareas mediante una arquitectura MERN.",
+
+    technologies: [
+      "MongoDB",
+      "Express",
+      "React",
+      "Node.js",
+      "TypeScript",
+      "JWT",
+      "Tailwind CSS",
+    ],
+
+    github: "https://github.com/Juan-prog-2022/uptask",
+
+    demo: "https://uptask.vercel.app",
+
+    image: "/screenshots/uptask.jpg",
+  },
+];

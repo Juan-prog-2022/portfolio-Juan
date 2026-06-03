@@ -1,87 +1,225 @@
 import { motion } from "framer-motion"
 import type { Project } from "../data/projects"
 
+import {
+  FaGithub,
+  FaExternalLinkAlt,
+} from "react-icons/fa"
+
+import {
+  SiSwagger,
+} from "react-icons/si"
 
 interface Props {
   project: Project
 }
 
-export default function ProjectCard({ project }: Props) {
+export default function ProjectCard({
+  project,
+}: Props) {
   return (
     <motion.article
       initial={false}
       animate={{ opacity: 1, y: 0 }}
-      whileHover={{ y: -5 }}
-      transition={{ duration: 0.4 }}
-      className="group rounded-2xl overflow-hidden border border-slate-800 bg-slate-900 shadow-sm hover:shadow-xl transition-all"
+      whileHover={{
+        y: -8,
+        scale: 1.01,
+      }}
+      transition={{ duration: 0.3 }}
+      className="
+        group
+        h-full
+        rounded-2xl
+        overflow-hidden
+        border
+        border-slate-800
+        bg-slate-900/80
+        backdrop-blur
+        hover:border-blue-500/40
+        transition-all
+      "
     >
-      {/* 🖼️ Imagen */}
-      <div className="relative h-48 w-full overflow-hidden">
+      {/* Image */}
+      <div className="relative h-52 w-full overflow-hidden border-b border-slate-800">
         <img
           src={project.image || "/placeholder.jpg"}
           alt={project.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+          className="
+            w-full
+            h-full
+            object-cover
+            group-hover:scale-105
+            transition
+            duration-500
+          "
         />
 
-        {/* ⭐ Featured */}
         {project.featured && (
-          <span className="absolute top-3 left-3 bg-yellow-400 text-black text-xs font-semibold px-2 py-1 rounded-md">
-            ⭐ Destacado
+          <span
+            className="
+              absolute
+              top-3
+              left-3
+              bg-blue-600
+              text-white
+              text-xs
+              font-medium
+              px-3
+              py-1
+              rounded-full
+              shadow
+            "
+          >
+            Featured
           </span>
         )}
       </div>
 
-      {/* 📦 Contenido */}
-      <div className="p-5 flex flex-col h-full">
+      {/* Content */}
+      <div className="p-6 flex flex-col h-full">
 
-        <div>
-          <h3 className="text-lg font-bold mb-2 text-white">
-            {project.title}
-          </h3>
+        {/* Category */}
+        <span
+          className="
+            text-xs
+            uppercase
+            tracking-widest
+            text-blue-400
+            font-medium
+            mb-3
+          "
+        >
+          {project.category}
+        </span>
 
-          <p className="text-sm text-slate-300 mb-4 line-clamp-3">
-            {project.description}
-          </p>
+        {/* Title */}
+        <h3 className="text-xl font-bold text-white mb-3">
+          {project.title}
+        </h3>
 
-          {/* 🛠️ Tecnologías */}
-          <div className="flex flex-wrap gap-2 mb-4">
-            {project.technologies.map((tech) => (
+        {/* Description */}
+        <p className="text-slate-400 text-sm leading-relaxed mb-5 line-clamp-4">
+          {project.description}
+        </p>
+
+        {/* Technologies */}
+        <div className="flex flex-wrap gap-2 mb-5">
+          {project.technologies
+            .slice(0, 6)
+            .map((tech) => (
               <span
                 key={tech}
-                className="text-xs bg-slate-800 text-slate-300 px-2 py-1 rounded-md"
+                className="
+                  text-xs
+                  border
+                  border-slate-700
+                  bg-slate-800/80
+                  text-slate-300
+                  px-3
+                  py-1
+                  rounded-full
+                "
               >
                 {tech}
               </span>
             ))}
-          </div>
 
-          {/* ⚠️ Nota */}
-          {project.notes && (
-            <p className="text-xs text-yellow-400 mb-3">
-              ⚠️ {project.notes}
-            </p>
-          )}
-
-          {/* 🔐 Credenciales */}
-          {project.credentials && (
-            <div className="text-xs bg-slate-800 p-2 rounded mb-3 text-slate-300">
-              <p className="font-semibold text-white">Demo:</p>
-              <p>Email: {project.credentials.email}</p>
-              <p>Password: {project.credentials.password}</p>
-            </div>
+          {project.technologies.length > 6 && (
+            <span
+              className="
+                text-xs
+                border
+                border-slate-700
+                bg-slate-800
+                text-slate-400
+                px-3
+                py-1
+                rounded-full
+              "
+            >
+              +{project.technologies.length - 6}
+            </span>
           )}
         </div>
 
-        {/* 🔗 Botones */}
-        <div className="mt-auto flex flex-wrap gap-3 border-t border-slate-800 pt-4">
+        {/* Notes */}
+        {project.notes && (
+          <div
+            className="
+              mb-5
+              rounded-lg
+              border
+              border-yellow-500/20
+              bg-yellow-500/10
+              px-3
+              py-2
+            "
+          >
+            <p className="text-xs text-yellow-300">
+              {project.notes}
+            </p>
+          </div>
+        )}
+
+        {/* Credentials */}
+        {project.credentials && (
+          <div
+            className="
+              mb-5
+              rounded-lg
+              border
+              border-slate-700
+              bg-slate-800/70
+              p-3
+            "
+          >
+            <p className="text-xs font-semibold text-white mb-2">
+              Demo Credentials
+            </p>
+
+            <div className="space-y-1 text-xs text-slate-300">
+              <p>
+                <span className="text-slate-500">
+                  Email:
+                </span>{" "}
+                {project.credentials.email}
+              </p>
+
+              <p>
+                <span className="text-slate-500">
+                  Password:
+                </span>{" "}
+                {project.credentials.password}
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* Actions */}
+        <div className="mt-auto pt-5 border-t border-slate-800 flex flex-wrap gap-3">
+
           {project.demo && (
             <a
               href={project.demo}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center rounded-md bg-red-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-red-600 hover:shadow-md"
+              className="
+                inline-flex
+                items-center
+                gap-2
+                rounded-lg
+                bg-blue-600
+                hover:bg-blue-700
+                px-4
+                py-2
+                text-sm
+                font-medium
+                text-white
+                transition
+              "
             >
-              DEMO
+              <FaExternalLinkAlt size={13} />
+              Live Demo
             </a>
           )}
 
@@ -90,11 +228,54 @@ export default function ProjectCard({ project }: Props) {
               href={project.github}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center rounded-md bg-blue-500 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-600 hover:shadow-md"
+              className="
+                inline-flex
+                items-center
+                gap-2
+                rounded-lg
+                border
+                border-slate-700
+                hover:border-slate-500
+                px-4
+                py-2
+                text-sm
+                font-medium
+                text-slate-300
+                hover:text-white
+                transition
+              "
             >
-              CÓDIGO
+              <FaGithub />
+              GitHub
             </a>
           )}
+
+          {project.swagger && (
+            <a
+              href={project.swagger}
+              target="_blank"
+              rel="noreferrer"
+              className="
+                inline-flex
+                items-center
+                gap-2
+                rounded-lg
+                border
+                border-emerald-700
+                hover:border-emerald-500
+                px-4
+                py-2
+                text-sm
+                font-medium
+                text-emerald-300
+                transition
+              "
+            >
+              <SiSwagger />
+              Swagger
+            </a>
+          )}
+
         </div>
       </div>
     </motion.article>

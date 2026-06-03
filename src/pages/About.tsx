@@ -1,91 +1,63 @@
 export default function About() {
   return (
-    <section id="about" className="py-20 px-4">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        
-        {/* 🧠 ABOUT */}
-        <div>
-          <h2 className="text-3xl font-bold text-white mb-6">
-            Sobre mí
-          </h2>
+    <section id="about" className="py-24 px-4">
+      <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
 
-          <p className="text-slate-300 mb-4">
-            Soy desarrollador Full Stack enfocado en la creación de aplicaciones web
-            modernas, escalables y bien estructuradas. Trabajo principalmente con
-            React en el frontend y Spring Boot o Node.js en el backend.
-          </p>
-
-          <p className="text-slate-300 mb-4">
-            Me interesa escribir código limpio, aplicar buenas prácticas y diseñar
-            APIs robustas. Disfruto resolver problemas complejos y transformar ideas
-            en productos funcionales.
-          </p>
-
-          <p className="text-slate-300">
-            Actualmente estoy enfocado en mejorar mis habilidades en arquitectura
-            de software y desarrollo de sistemas distribuidos.
-          </p>
+        {/* Foto */}
+        <div className="flex justify-center">
+          <img
+            src="/profile.jpg"
+            alt="Juan Quiroz"
+            className="w-72 h-72 rounded-3xl object-cover border border-slate-800 shadow-xl"
+          />
         </div>
 
-        {/* 🛠️ SKILLS */}
+        {/* Contenido */}
         <div>
-          <h3 className="text-2xl font-semibold text-white mb-6">
-            Tecnologías
-          </h3>
 
-          <div className="grid grid-cols-2 gap-6">
-            
-            {/* Frontend */}
-            <div className="bg-slate-900 p-4 rounded-lg border border-slate-800">
-              <h4 className="font-medium text-blue-400 mb-2">
-                Frontend
-              </h4>
-              <ul className="text-slate-300 space-y-1 text-sm">
-                <li>React</li>
-                <li>TypeScript</li>
-                <li>Tailwind CSS</li>
-                <li>HTML / CSS</li>
-              </ul>
-            </div>
+          <span className="text-sm uppercase tracking-widest text-blue-400 font-medium">
+            About Me
+          </span>
 
-            {/* Backend */}
-            <div className="bg-slate-900 p-4 rounded-lg border border-slate-800">
-              <h4 className="font-medium text-blue-400 mb-2">
-                Backend
-              </h4>
-              <ul className="text-slate-300 space-y-1 text-sm">
-                <li>Java</li>
-                <li>Spring Boot</li>
-                <li>Node.js</li>
-                <li>Express</li>
-              </ul>
-            </div>
+          <h2 className="text-4xl font-bold text-white mt-3 mb-8">
+            Backend Developer especializado en Java y Spring Boot
+          </h2>
 
-            {/* Database */}
-            <div className="bg-slate-900 p-4 rounded-lg border border-slate-800">
-              <h4 className="font-medium text-blue-400 mb-2">
-                Base de Datos
-              </h4>
-              <ul className="text-slate-300 space-y-1 text-sm">
-                <li>PostgreSQL</li>
-                <li>MySQL</li>
-                <li>MongoDB</li>
-              </ul>
-            </div>
+          <div className="space-y-5 text-slate-300 leading-relaxed">
+            <p>
+              Soy desarrollador orientado al backend enfocado en la creación de
+              APIs REST escalables, seguras y bien estructuradas utilizando Java y
+              Spring Boot.
+            </p>
 
-            {/* Tools */}
-            <div className="bg-slate-900 p-4 rounded-lg border border-slate-800">
-              <h4 className="font-medium text-blue-400 mb-2">
-                Herramientas
-              </h4>
-              <ul className="text-slate-300 space-y-1 text-sm">
-                <li>Git & GitHub</li>
-                <li>Docker</li>
-                <li>Postman</li>
-                <li>Linux</li>
-              </ul>
-            </div>
+            <p>
+              Trabajo principalmente con Spring Security, JWT, PostgreSQL,
+              MySQL y Docker, aplicando buenas prácticas y arquitectura limpia.
+            </p>
 
+            <p>
+              También cuento con experiencia en React y desarrollo full stack,
+              permitiéndome construir soluciones completas de extremo a extremo.
+            </p>
+          </div>
+
+          {/* Highlights */}
+          <div className="grid grid-cols-2 gap-3 mt-8">
+            {[
+              "REST APIs",
+              "Spring Security",
+              "Docker",
+              "Microservices",
+              "PostgreSQL",
+              "Clean Architecture",
+            ].map((item) => (
+              <div
+                key={item}
+                className="bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 text-sm text-slate-300"
+              >
+                ✓ {item}
+              </div>
+            ))}
           </div>
         </div>
       </div>
