@@ -3,19 +3,7 @@ import {
   FaReact,
   FaDocker,
   FaDatabase,
-  FaGithub,
 } from "react-icons/fa"
-
-import {
-  SiSpringboot,
-  SiPostgresql,
-  SiMysql,
-  SiMongodb,
-  SiPostman,
-  SiSwagger,
-  SiTypescript,
-  SiTailwindcss,
-} from "react-icons/si"
 
 const skillGroups = [
   {
