@@ -76,7 +76,7 @@ export default function ProjectCard({
       </div>
 
       {/* Content */}
-      <div className="p-6 flex flex-col h-full">
+      <div className="p-6 flex flex-col">
 
         {/* Category */}
         <span
