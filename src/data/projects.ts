@@ -65,7 +65,7 @@ export const projects: Project[] = [
     id: 2,
     category: "Full Stack",
 
-    title: "PetCare Manager",
+    title: "PetCare System",
 
     description:
       "Sistema de gestión para veterinarias que permite administrar productos, servicios, clientes y turnos mediante una arquitectura full stack con Spring Boot y React.",
@@ -82,13 +82,13 @@ export const projects: Project[] = [
       "Hibernate",
     ],
 
-    github: "https://github.com/Juan-prog-2022/petcare-manager",
+    github: "https://github.com/Juan-prog-2022/pet-care-system-front",
 
-    demo: "https://petcare-manager.vercel.app",
+    demo: "https://pet-care-system-front.vercel.app",
 
-    swagger: "https://petcare-manager-api.onrender.com/swagger-ui/index.html",
+    swagger: "https://pet-care-system-api.onrender.com/swagger-ui/index.html",
 
-    image: "/screenshots/petcare-manager.jpg",
+    image: "/screenshots/pet-care-system.jpg",
 
     featured: true,
 
@@ -183,5 +183,34 @@ export const projects: Project[] = [
     demo: "https://uptask.vercel.app",
 
     image: "/screenshots/uptask.jpg",
+  },
+
+  {
+    id: 6,
+    category: "PERN Stack",
+
+    title: "Buscador de Bebidas con IA",
+
+    description:
+      "App Full Stack con Stack PERN para bares y restaurantes que permite buscar y gestionar bebidas utilizando inteligencia artificial. Cuenta con autenticación JWT, base de datos PostgreSQL con Sequelize y una interfaz moderna con React y Tailwind CSS.",
+
+    technologies: [
+      "React",
+      "TypeScript",
+      "PostgreSQL",
+      "Express",
+      "Node.js",
+      "Tailwind CSS",
+      "JWT",
+      "Sequelize",
+      "Zustand",
+      "React Hook Form",
+    ],
+
+    github: "https://github.com/Juan-prog-2022/buscador-de-bebidas-con-IA",
+
+    demo: "https://buscador-de-bebidas-con-ia.vercel.app",
+
+    image: "/screenshots/sabores-con-IA.png",
   },
 ];
