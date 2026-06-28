@@ -88,7 +88,7 @@ export const projects: Project[] = [
 
     swagger: "https://pet-care-system-api.onrender.com/swagger-ui/index.html",
 
-    image: "/screenshots/pet-care-system.jpg",
+    image: "/screenshots/pet-care-system.png",
 
     featured: true,
 
